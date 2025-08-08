@@ -12,6 +12,18 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        startBtn.onClick.AddListener(() => { OnClickStart?.Invoke(); });
+        startBtn.onClick.AddListener(() => { OnClickStartHandler(); });
+    }
+
+    private void Update()
+    {
+        if(GameManager.Instance.state == GameManager.GameState.Ready){
+            startBtn.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnClickStartHandler(){
+        OnClickStart?.Invoke();
+        startBtn.gameObject.SetActive(false);
     }
 }
