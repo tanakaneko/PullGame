@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c166c6bfc645e7140a2e50e1de09b58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &246412577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115687706580748466, guid: 455e03da2190ded4799e8ed9844571d3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4115687706580748466, guid: 455e03da2190ded4799e8ed9844571d3, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1637,7 +1638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115687706580748466, guid: 455e03da2190ded4799e8ed9844571d3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4115687706580748466, guid: 455e03da2190ded4799e8ed9844571d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -16,6 +16,9 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private ShelfTrigger trigger;
 
+    // ëŒè€Ç∆Ç∑ÇÈÉAÉCÉeÉÄ
+    [SerializeField] private ItemManager.ItemType targetItemType;
+
     private enum State
     {
         OPEN,
@@ -76,6 +79,11 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
     }
 
     private void OnGetItem(Item item){
-        Destroy(item.gameObject);
+        if(item.Type == targetItemType){
+            item.OnEnterCorrectShelf();
+        }
+        else{
+            item.OnEnterWrongShelf();
+        }
     }
 }

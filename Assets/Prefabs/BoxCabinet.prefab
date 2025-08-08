@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff2fb0dd783c6534a8be85616ee5c73d, type: 2}
+    - target: {fileID: 6798601499732007028, guid: d801bef0ee3e65b45952dd8043d21993, type: 3}
+      propertyPath: targetItemType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7106789784777374477, guid: d801bef0ee3e65b45952dd8043d21993, type: 3}
       propertyPath: m_Name
       value: shelf3
@@ -164,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c8eaae12227355a4393a8c11a6922059, type: 2}
+    - target: {fileID: 6798601499732007028, guid: d801bef0ee3e65b45952dd8043d21993, type: 3}
+      propertyPath: targetItemType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7106789784777374477, guid: d801bef0ee3e65b45952dd8043d21993, type: 3}
       propertyPath: m_Name
       value: shelf2
