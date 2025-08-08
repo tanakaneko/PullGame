@@ -39,7 +39,8 @@ public class ItemManager : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
+        if (GameManager.Instance.state != GameManager.GameState.Playing) return;
         if(timer >= spawnSpan)
         {
             System.Random rand = new System.Random();
