@@ -1,18 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShelfTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event Action <Item> OnTriggerEnterItem;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnTriggerEnter(Collider other){
+        Item item = other.GetComponent<Item>();
+        if (item != null){
+            OnTriggerEnterItem?.Invoke(item);
+        }
     }
 }

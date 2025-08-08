@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049478618380759746}
   - component: {fileID: 8368334332635791653}
+  - component: {fileID: 6093208212959331493}
   m_Layer: 0
   m_Name: Trriger
   m_TagString: Untagged
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.397942, y: 4.2945805, z: 6.9255037}
   m_Center: {x: 0.018384218, y: 18.35271, z: 0.023702145}
+--- !u!114 &6093208212959331493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530313790112067990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27dc5aa6a31db94f8f03e71f866498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7106789784777374477
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.4
+  trigger: {fileID: 6093208212959331493}
 --- !u!65 &1864388661394961111
 BoxCollider:
   m_ObjectHideFlags: 0

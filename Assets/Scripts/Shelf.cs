@@ -14,6 +14,8 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
 
     private Rigidbody rb;
 
+    [SerializeField] private ShelfTrigger trigger;
+
     private enum State
     {
         OPEN,
@@ -31,6 +33,9 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
         openZ = transform.position.z - OPEN_Z_OFFSET;
 
         rb = GetComponent<Rigidbody>();
+
+        // ÉCÉxÉìÉgçwì«
+        trigger.OnTriggerEnterItem += OnGetItem;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -70,10 +75,7 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void OnCollisionEnter(Collision collision){
-        Item item = collision.gameObject?.GetComponent<Item>();
-        if (item != null) {
-            item.OnHitShelfFront();
-        }
+    private void OnGetItem(Item item){
+        Destroy(item.gameObject);
     }
 }
