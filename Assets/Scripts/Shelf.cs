@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,13 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
     private const float OPEN_Z_OFFSET = 6.0f;  // 閉じた状態と開いた状態のz座標の差
 
     [SerializeField] private float animTime; // アニメーションにかかる時間
+
+    private Rigidbody rb;
+
+    [SerializeField] private ShelfTrigger trigger;
+
+    // 対象とするアイテム
+    [SerializeField] private ItemManager.ItemType targetItemType;
 
     private enum State
     {
@@ -26,6 +34,11 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
         state = State.CLOSED;
         closeZ = transform.position.z;
         openZ = transform.position.z - OPEN_Z_OFFSET;
+
+        rb = GetComponent<Rigidbody>();
+
+        // イベント購読
+        trigger.OnTriggerEnterItem += OnGetItem;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -47,13 +60,10 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
 
     private void MoveAnim(float toZ)
     {
-        var moveHash = new Hashtable();
-        moveHash.Add("z", toZ);
-        moveHash.Add("time", animTime);
-        moveHash.Add("easeType", "easeOutCirc");
-        moveHash.Add("oncomplete", "AnimationEnd");
-        moveHash.Add("oncompletetarget", this.gameObject);
-        iTween.MoveTo(this.gameObject, moveHash);
+        this.rb
+            .DOMoveZ(toZ, animTime)          // 目標のZ座標(toZ)とアニメーション時間(animTime)を指定
+            .SetEase(Ease.OutCirc)           // イージングの種類をEase.OutCircに設定
+            .OnComplete(AnimationEnd);
     }
 
     private void AnimationEnd()
@@ -65,6 +75,15 @@ public class Shelf : MonoBehaviour, IPointerClickHandler
         else if (state == State.OPENING) 
         {
             state = State.OPEN;
+        }
+    }
+
+    private void OnGetItem(Item item){
+        if(item.Type == targetItemType){
+            item.OnEnterCorrectShelf();
+        }
+        else{
+            item.OnEnterWrongShelf();
         }
     }
 }
