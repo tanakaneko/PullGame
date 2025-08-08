@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public enum GameState{
+        Ready,
+        Start,
+        Playing,
+        Finish,
+        Result,
+    }
+
+    public GameState state;
+
     private int _score;
 
     public int Score{ get { return _score; } }
@@ -13,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         itemManager.OnItemEnterShelf += OnGetScore;
+        state = GameState.Ready;
     }
 
     private void OnGetScore(int score){
